@@ -23,7 +23,7 @@ public class App
     {
         try {
             Storage storage = StorageOptions.builder().authCredentials(AuthCredentials.createForJson(new FileInputStream(args[0]))).build().service();
-            BlobId blobId = BlobId.of("yeray-cloud", "helloworld.txt");
+            BlobId blobId = BlobId.of(args[1], "helloworld.txt");
             BlobInfo blobInfo = BlobInfo.builder(blobId).contentType("text/plain").build();
             Blob blob = storage.create(blobInfo, "Hello, Cloud Storage!".getBytes(UTF_8));
         }
